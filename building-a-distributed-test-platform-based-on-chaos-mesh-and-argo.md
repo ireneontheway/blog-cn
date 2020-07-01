@@ -56,7 +56,7 @@ Porcupine 一个用 Go 实现的线性一致性验证工具。是基于 [P-compo
 
 Elle 是用来验证数据库事务隔离级别的检查工具。Elle 是一个纯黑盒的测试工具，巧妙的构造了一个测试场景，通过客户端生成的历史构造出依赖关系图，通过判断依赖图中是否有环以及分析环来确定事务的出现的异常类型，来确定事务的隔离级别。在 TiPocket 中，我们参考 Elle 项目，实现了 Go 版本的 Elle 检查工具 [go-elle](https://github.com/pingcap/tipocket/tree/master/pkg/elle)，并结合 go-elle 工具来验证 TiDB 的隔离级别。
 
-这些只是 TiPocket  中用来验证 TiDB 正确性的一小部分，如果读者有兴趣可以自行阅读相关 [源码](https://github.com/pingcap/tipocket)，查看更多的验证方法。现在我们有了故障注入，有了待测的 TiDB 集群，有了检验 TiDB 的方式，那么我们该如让这些混沌实验自动化的运行起来呢？如何最大化的利用资源呢？在下一小节我们会介绍 TiPocket 中是如何解决这个问题的。
+这些只是 TiPocket  中用来验证 TiDB 正确性的一小部分，如果读者有兴趣可以自行阅读相关 [源码](https://github.com/pingcap/tipocket)，查看更多的验证方法。现在我们有了故障注入，有了待测的 TiDB 集群，有了检验 TiDB 的方式，那么我们该如何让这些混沌实验自动化的运行起来呢？如何最大化的利用资源呢？在下一小节我们会介绍 TiPocket 中是如何解决这个问题的。
 
 ## Argo 让流程自动化起来  
 
@@ -104,7 +104,7 @@ spec:
 
 ## Loki 提高实验的可观测性
 
-可观测性，在云原生中系统中是非常重要的一环。通常来说可观测性主要包含 Metrics（指标），Logging（日志）和 Tracing（追踪）。由于 TiPocket 中主要运行的 test case，都是针对于测试 TiDB 集群，常依靠 metrics 和日志就能够定位问题。
+可观测性，在云原生系统中是非常重要的一环。通常来说可观测性主要包含 Metrics（指标），Logging（日志）和 Tracing（追踪）。由于 TiPocket 中主要运行的 test case，都是针对于测试 TiDB 集群，常依靠 metrics 和日志就能够定位问题。
 
 ![3-Loki](media/building-a-distributed-test-platform-based-on-chaos-mesh-and-argo/3-loki.png)
 
